@@ -55,9 +55,18 @@ class Dashboard extends StatelessWidget {
               ),
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: CardProduto(produto: appProducts[index]),
+                    onTap: () {
+                      print("cliquei no card");
+                      print(index);
+
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProdutoScreen(produto: appProducts[index])));
+                    },
+                    title: GestureDetector(
+                      child: 
+                      CardProduto(produto: appProducts[index])),
                   );
                 },
+                
               ),
               Text("Mais vendidos"),
               Text("Cards de frutas "),
